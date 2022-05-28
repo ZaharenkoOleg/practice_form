@@ -1,35 +1,62 @@
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.WebDriverRunner;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import java.io.File;
+
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selenide.*;
 
 
 public class PracticeForm {
 
-        @BeforeAll
+    @BeforeAll
     static void beforeAll() {
-            Configuration.browser = "chrome";
-            Configuration.browserSize = "1920x1080";
-            Configuration.baseUrl = "https://demoqa.com";
+        Configuration.browser = "chrome";
+        Configuration.browserSize = "1920x1080";
+        Configuration.baseUrl = "https://demoqa.com";
+        Configuration.holdBrowserOpen = true;
 
-        }
+    }
 
-        @Test
-        void firstTest() {
-            open("/automation-practice-form");
-            $("#firstName").setValue("Oleg");
-            $("#lastName").setValue("Zaharenko");
-            $("#userEmail").setValue("blablalba@gmail.com");
-            $("#userNumber").setValue("1234567890");
-            $("#subjectsContainer").setValue("qwerty");
-        }
-        @AfterAll
-    static void afterAll() {
-            Selenide.closeWebDriver();
-        }
+    @Test
+    void firstTest() throws InterruptedException {
+        open("/automation-practice-form");
+        $("#subjectsInput").sendKeys("ch");
+        $("#subjectsInput").setValue("H").pressEnter();
+        $("#firstName").setValue("Oleg");
+        $("#lastName").setValue("Zaharenko");
+        $("#userEmail").setValue("blablalba@gmail.com");
+        $(byText("Male")).click();
+        $("#userNumber").setValue("1234567890");
+
+        $("#dateOfBirthInput").click();
+        $(".react-datepicker__month-select").selectOption("February");
+        $(".react-datepicker__year-select").selectOption("2000");
+        $(byText("4")).click();
+
+        $(byText("Music")).click();
+        $("#uploadPicture").uploadFile(new File("C:\\Users\\temp\\IdeaProjects\\practice_form\\src\\test\\resources\\image.jpg"));
+        $("#currentAddress").setValue("qwerty");
+
+        $("#react-select-3-input").setValue("Uttar Pradesh").pressEnter();
+        $("#react-select-4-input").setValue("Lucknow").pressEnter();
+
+        $("#submit").click();
+
+        $(".table-responsive").shouldHave(
+                text("Oleg Zaharenko"),
+                text("blablalba@gmail.com"),
+                text("Male"),
+                text("1234567890"),
+                text("4 February,2000"),
+                text("Chemistry"),
+                text("Music"),
+                text("image.jpg"),
+                text("qwerty"),
+                text("Uttar Pradesh Lucknow")
+        );
+    }
 }
