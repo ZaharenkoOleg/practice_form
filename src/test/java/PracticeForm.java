@@ -22,7 +22,6 @@ public class PracticeForm {
     void firstTest() {
         open("/automation-practice-form");
         $("#subjectsInput").sendKeys("ch");
-        $("#subjectsInput").setValue("H").pressEnter();
         $("#firstName").setValue("Oleg");
         $("#lastName").setValue("Zaharenko");
         $("#userEmail").setValue("blablalba@gmail.com");
