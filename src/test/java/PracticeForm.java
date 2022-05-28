@@ -1,10 +1,7 @@
 import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
 import java.io.File;
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -22,7 +19,7 @@ public class PracticeForm {
     }
 
     @Test
-    void firstTest() throws InterruptedException {
+    void firstTest() {
         open("/automation-practice-form");
         $("#subjectsInput").sendKeys("ch");
         $("#subjectsInput").setValue("H").pressEnter();
@@ -38,7 +35,7 @@ public class PracticeForm {
         $(byText("4")).click();
 
         $(byText("Music")).click();
-        $("#uploadPicture").uploadFile(new File("C:\\Users\\temp\\IdeaProjects\\practice_form\\src\\test\\resources\\image.jpg"));
+        $("#uploadPicture").uploadFile(new File("src\\test\\resources\\image.jpg"));
         $("#currentAddress").setValue("qwerty");
 
         $("#react-select-3-input").setValue("Uttar Pradesh").pressEnter();
@@ -46,8 +43,7 @@ public class PracticeForm {
 
         $("#submit").click();
 
-        $(".table-responsive").shouldHave(
-                text("Oleg Zaharenko"),
+        $(".modal-body").shouldHave( text("Oleg Zaharenko"),
                 text("blablalba@gmail.com"),
                 text("Male"),
                 text("1234567890"),
