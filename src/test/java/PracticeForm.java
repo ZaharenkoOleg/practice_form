@@ -22,6 +22,7 @@ public class PracticeForm {
     void firstTest() {
         open("/automation-practice-form");
         $("#subjectsInput").sendKeys("chemistry");
+        $("#subjectsInput").pressEnter();
         $("#firstName").setValue("Oleg");
         $("#lastName").setValue("Zaharenko");
         $("#userEmail").setValue("blablalba@gmail.com");
@@ -42,7 +43,8 @@ public class PracticeForm {
 
         $("#submit").click();
 
-        $(".modal-body").shouldHave( text("Oleg Zaharenko"),
+        $(".modal-body").shouldHave(
+                text("Oleg Zaharenko"),
                 text("blablalba@gmail.com"),
                 text("Male"),
                 text("1234567890"),
