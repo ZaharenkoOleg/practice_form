@@ -83,18 +83,9 @@ public class PracticeFormPage {
         return this;
     }
 
-    public PracticeFormPage checkResults() {
+public PracticeFormPage checkResult(String key, String value) {
         ResultTableComponent resultTableComponent = new ResultTableComponent();
-        resultTableComponent.checkTable("Student Name", "Oleg Zaharenko");
-        resultTableComponent.checkTable("Student Email", "blablalba@gmail.com");
-        resultTableComponent.checkTable("Gender", "Male");
-        resultTableComponent.checkTable("Mobile", "1234567890");
-        resultTableComponent.checkTable("Date of Birth", "04 February,2000");
-        resultTableComponent.checkTable("Subjects", "Chemistry");
-        resultTableComponent.checkTable("Hobbies", "Music");
-        resultTableComponent.checkTable("Picture", "PracticeFormTest.java");
-        resultTableComponent.checkTable("Address", "qwerty");
-        resultTableComponent.checkTable("State and City", "Uttar Pradesh Lucknow");
+        resultTableComponent.checkTable(key, value);
         return this;
     }
 

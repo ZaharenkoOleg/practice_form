@@ -25,7 +25,16 @@ public class PracticeFormTest extends BaseTest {
                         .setState("Uttar Pradesh")
                         .setCity("Lucknow")
                         .pressSubmit()
-                        .checkResults();
+                        .checkResult("Student Name", "Oleg Zaharenko")
+                        .checkResult("Student Email", "blablalba@gmail.com")
+                        .checkResult("Gender", "Male")
+                        .checkResult("Mobile", "1234567890")
+                        .checkResult("Date of Birth", "04 February,2000")
+                        .checkResult("Subjects", "Chemistry")
+                        .checkResult("Hobbies", "Music")
+                        .checkResult("Picture", "PracticeFormTest.java")
+                        .checkResult("Address", "qwerty")
+                        .checkResult("State and City", "Uttar Pradesh Lucknow");
 
     }
 
