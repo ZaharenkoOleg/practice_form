@@ -10,6 +10,10 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class PracticeFormPage {
+
+    ResultTableComponent resultTableComponent = new ResultTableComponent();
+    CalenderComponent calenderComponent = new CalenderComponent();
+
     public PracticeFormPage openPracticeForm() {
         open("/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
@@ -46,11 +50,12 @@ public class PracticeFormPage {
 
 
     public PracticeFormPage setDateOfBirthday(String DD, String MM, String YYYY) {
-        CalenderComponent calenderComponent = new CalenderComponent();
+
         $("#dateOfBirthInput").click();
         calenderComponent.setDate(DD, MM, YYYY);
         return this;
     }
+
     public PracticeFormPage setUserNumber(String value) {
         $("#userNumber").setValue(value);
         return this;
@@ -70,21 +75,24 @@ public class PracticeFormPage {
         $("#currentAddress").setValue(value);
         return this;
     }
+
     public PracticeFormPage setState(String value) {
         $("#react-select-3-input").setValue(value).pressEnter();
         return this;
     }
+
     public PracticeFormPage setCity(String value) {
         $("#react-select-4-input").setValue(value).pressEnter();
         return this;
     }
+
     public PracticeFormPage pressSubmit() {
         $("#submit").click();
         return this;
     }
 
-public PracticeFormPage checkResult(String key, String value) {
-        ResultTableComponent resultTableComponent = new ResultTableComponent();
+    public PracticeFormPage checkResult(String key, String value) {
+
         resultTableComponent.checkTable(key, value);
         return this;
     }
