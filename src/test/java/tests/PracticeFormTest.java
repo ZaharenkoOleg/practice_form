@@ -7,33 +7,35 @@ import pages.PracticeFormPage;
 public class PracticeFormTest extends BaseTest {
 
     PracticeFormPage practiceFormPage = new PracticeFormPage();
+    TestData testData = new TestData();
 
     @Test
     void FirstTest() {
         practiceFormPage.openPracticeForm()
-                .setSubjectF("chemistry")
-                .setFirstName("Oleg")
-                .setLastName("Zaharenko")
-                .setUserEmail("blablalba@gmail.com")
-                .setGender("Male")
-                .setUserNumber("1234567890")
-                .setDateOfBirthday("04", "February", "2000")
-                .setHobbiesWrapper("Music")
-                .uploadPicture("src/test/java/tests/PracticeFormTest.java")
-                .setCurrentAddress("qwerty")
-                .setState("Uttar Pradesh")
-                .setCity("Lucknow")
+                .setSubjectF(testData.subject)
+                .setFirstName(testData.firstName)
+                .setLastName(testData.lastName)
+                .setUserEmail(testData.email)
+                .setGender(testData.gender)
+                .setUserNumber(testData.phone)
+                .setDateOfBirthday(testData.birthDay, testData.birthMonth, testData.birthYear)
+                .setHobbiesWrapper(testData.hobby)
+                .uploadPicture(testData.picture)
+                .setCurrentAddress(testData.address)
+                .setState(testData.state)
+                .setCity(testData.city)
                 .pressSubmit()
-                .checkResult("Student Name", "Oleg Zaharenko")
-                .checkResult("Student Email", "blablalba@gmail.com")
-                .checkResult("Gender", "Male")
-                .checkResult("Mobile", "1234567890")
-                .checkResult("Date of Birth", "04 February,2000")
-                .checkResult("Subjects", "Chemistry")
-                .checkResult("Hobbies", "Music")
-                .checkResult("Picture", "PracticeFormTest.java")
-                .checkResult("Address", "qwerty")
-                .checkResult("State and City", "Uttar Pradesh Lucknow");
+
+                .checkResult("Student Name", testData.firstName + " " + testData.lastName)
+                .checkResult("Student Email", testData.email)
+                .checkResult("Gender", testData.gender)
+                .checkResult("Mobile", testData.phone)
+                .checkResult("Date of Birth", testData.birthDay + " " + testData.birthMonth + "," + testData.birthYear)
+                .checkResult("Subjects", testData.subject)
+                .checkResult("Hobbies", testData.hobby)
+                .checkResult("Picture", testData.picture)
+                .checkResult("Address", testData.address)
+                .checkResult("State and City", testData.state + " " + testData.city);
 
     }
 
