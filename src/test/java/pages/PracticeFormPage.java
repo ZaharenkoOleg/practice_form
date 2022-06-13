@@ -14,7 +14,7 @@ public class PracticeFormPage {
 
     public PracticeFormPage openPracticeForm() {
         open("/automation-practice-form");
-        $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
+        $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));zzzzz
         executeJavaScript("$('footer').remove()");
         executeJavaScript("$('#fixedban').remove()");
         return this;
