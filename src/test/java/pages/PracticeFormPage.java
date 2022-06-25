@@ -14,6 +14,7 @@ public class PracticeFormPage {
 
     ResultTableComponent resultTableComponent = new ResultTableComponent();
     CalenderComponent calenderComponent = new CalenderComponent();
+
     @Step("Открываем форму регитсрации")
     public PracticeFormPage openPracticeForm() {
         open("/automation-practice-form");
