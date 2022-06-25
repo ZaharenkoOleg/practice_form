@@ -2,6 +2,7 @@ package tests;
 
 import org.junit.jupiter.api.Test;
 import pages.PracticeFormPage;
+import utils.RandomUtils;
 
 
 public class PracticeFormTest extends BaseTest {
@@ -36,7 +37,6 @@ public class PracticeFormTest extends BaseTest {
                 .checkResult("Picture", testData.picture)
                 .checkResult("Address", testData.address)
                 .checkResult("State and City", testData.state + " " + testData.city);
-
     }
 
 }

@@ -1,6 +1,10 @@
 package utils;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.Month;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class RandomUtils {
 
@@ -25,10 +29,15 @@ public class RandomUtils {
         return random;
     }
 
-    public static String randomMonth() {
+    public static LocalDate genRandomDate() {
+        LocalDate startInclusive = LocalDate.of(1900, Month.JANUARY, 1);
+        LocalDate endExclusive = LocalDate.now();
+        long startEpochDay = startInclusive.toEpochDay();
+        long endEpochDay = endExclusive.toEpochDay();
+        long randomDay = ThreadLocalRandom
+                .current()
+                .nextLong(startEpochDay, endEpochDay);
 
-        String[] month = {"December", "October", "January", "June", "July", "September", "November", "February"};
-        String random = (month[new Random().nextInt(month.length)]);
-        return random;
+        return LocalDate.ofEpochDay(randomDay);
     }
 }
