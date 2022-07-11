@@ -11,6 +11,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import java.text.Format;
+
 public class BaseTest {
 
     static CredentialsConfig config = ConfigFactory.create(CredentialsConfig.class);
@@ -29,7 +31,7 @@ public class BaseTest {
         Configuration.browserVersion = System.getProperty("version", "100");
         Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
         String remoteBrowser = System.getProperty("remote", "google.com");
-        Configuration.remote = "https://" + config.login() + ":" + config.password() + "@" + remoteBrowser;
+        Configuration.remote = String.format("https://%s:%s@%s",  config.login(), config.password(), remoteBrowser);
     }
         @AfterEach
         void afterEach() {
