@@ -17,7 +17,6 @@ public class BaseTest {
 
     @BeforeAll
     static void beforeAll() {
-        String remoteURL = System.getProperty("remoteURL");
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -29,7 +28,7 @@ public class BaseTest {
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserVersion = System.getProperty("version", "101");
         Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
-        Configuration.remote = String.format("https://%s:%s@%s", config.login(), config.password(), remoteURL);
+        Configuration.remote = String.format("https://%s:%s@%s", config.login(), config.password(), config.baseUrl());
     }
         @AfterEach
         void afterEach() {
