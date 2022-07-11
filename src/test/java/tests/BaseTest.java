@@ -28,8 +28,8 @@ public class BaseTest {
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserVersion = System.getProperty("version", "100");
         Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
-        String remoteDriverUrl = System.getProperty("remoteDriverUrl","///");
-        Configuration.remote = String.format("https://%s:%s@%s", config.login(), config.password(), remoteDriverUrl);
+        String remoteBrowser = System.getProperty("remote", "google.com");
+        Configuration.remote = "https://" + config.login() + ":" + config.password() + "@" + remoteBrowser;
     }
         @AfterEach
         void afterEach() {
