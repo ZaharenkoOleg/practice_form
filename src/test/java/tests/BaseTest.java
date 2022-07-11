@@ -26,9 +26,10 @@ public class BaseTest {
         Configuration.browserCapabilities = capabilities;
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.browser = System.getProperty("browser", "chrome");
-        Configuration.browserVersion = System.getProperty("version", "101");
+        Configuration.browserVersion = System.getProperty("version", "100");
         Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
-        Configuration.remote = String.format("https://%s:%s@%s", config.login(), config.password(), config.baseUrl());
+        String remoteDriverUrl = System.getProperty("remoteDriverUrl","selenoid.autotests.cloud/wd/hub");
+        Configuration.remote = String.format("https://%s:%s@%s", config.login(), config.password(), remoteDriverUrl);
     }
         @AfterEach
         void afterEach() {
