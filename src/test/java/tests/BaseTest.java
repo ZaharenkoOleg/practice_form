@@ -29,7 +29,7 @@ public class BaseTest {
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserVersion = System.getProperty("version", "101");
         Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
-        Configuration.remote = String.format("https://%s:%s@%s", config.login(), config.password());
+        Configuration.remote = String.format("https://%s:%s@%s", config.login(), config.password(), config.baseUrl());
     }
         @AfterEach
         void afterEach() {

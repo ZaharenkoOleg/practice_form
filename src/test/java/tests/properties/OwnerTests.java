@@ -13,9 +13,10 @@ public class OwnerTests {
     void someTest1() {
         String login = config.login();
         String password = config.password();
-
+        String baseUrl = config.baseUrl();
         System.out.println("Login: " + login);
         System.out.println("Password: " + password);
+        System.out.println("baseUrl: "+baseUrl);
     }
 
 }
