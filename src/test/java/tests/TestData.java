@@ -3,11 +3,6 @@ package tests;
 import com.github.javafaker.Faker;
 import utils.RandomUtils;
 
-import javax.xml.crypto.Data;
-import java.time.Month;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
-
 public class TestData {
     Faker faker = new Faker();
 

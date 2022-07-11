@@ -1,9 +1,8 @@
 package tests;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.PracticeFormPage;
-import utils.RandomUtils;
-
 
 public class PracticeFormTest extends BaseTest {
 
@@ -11,6 +10,7 @@ public class PracticeFormTest extends BaseTest {
     TestData testData = new TestData();
 
     @Test
+    @Tag("PracticeFormTest")
     void FirstTest() {
         practiceFormPage.openPracticeForm()
                 .setSubjectF(testData.subject)

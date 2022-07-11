@@ -34,6 +34,7 @@ dependencies {
             'io.qameta.allure:allure-selenide:2.18.1',
             "org.junit.jupiter:junit-jupiter:5.8.2",
             'com.github.javafaker:javafaker:1.0.2',
+            "org.aeonbits.owner:owner:1.0.12",
             'org.slf4j:slf4j-simple:1.7.36'
     )
 }
@@ -49,13 +50,8 @@ tasks.withType(Test) {
         }
     }
 }
-task properties_test6(type: Test) {
+task practice_form_test(type: Test) {
     useJUnitPlatform{
-        includeTags "test6"
-    }
-}
-task hello_test(type: Test) {
-    useJUnitPlatform{
-        includeTags "hello"
+        includeTags "PracticeFormTest"
     }
 }
