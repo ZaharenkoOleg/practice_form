@@ -11,15 +11,12 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import java.text.Format;
-
 public class BaseTest {
 
     static CredentialsConfig config = ConfigFactory.create(CredentialsConfig.class);
 
     @BeforeAll
-    static void setUp() {
-        String remoteURL = System.getProperty("remoteURL");
+    static void beforeAll() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
@@ -28,8 +25,12 @@ public class BaseTest {
 
         Configuration.browserCapabilities = capabilities;
         Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "1920x1080";
-        Configuration.remote = String.format("https://%s:%s@%s", config.login(), config.password(), remoteURL );
+        Configuration.browser = System.getProperty("browser", "chrome");
+        Configuration.browserVersion = System.getProperty("version", "100");
+        Configuration.browserSize = System.getProperty("browserSize", "1920x1080");
+        String remoteDriverUrl = System.getProperty("remoteDriverUrl","selenoid.autotests.cloud/wd/hub");
+       // Configuration.remote = String.format("https://%s:%s@%s", config.login(), config.password(), remoteDriverUrl);
+        Configuration.remote = "https://" + config.login() + ":" + config.password() + "@" + remoteDriverUrl;
     }
         @AfterEach
         void afterEach() {
