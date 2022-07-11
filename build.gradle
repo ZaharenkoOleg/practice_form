@@ -55,8 +55,13 @@ task properties_test6(type: Test) {
         includeTags "test6"
     }
 }
-    task someTest1(type: Test) {
+    task blabla(type: Test) {
         useJUnitPlatform{
             includeTags "owner"
         }
+}
+task someTest1(type: Test) {
+    useJUnitPlatform{
+        includeTags "PracticeFormTest"
+    }
 }
