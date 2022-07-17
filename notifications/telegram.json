@@ -1,9 +1,9 @@
 {
   "base": {
-    "project": "smt",
+    "project": "${JOB_BASE_NAME}",
     "environment": "chrome",
     "comment": "test",
-    "reportLink": "",
+    "reportLink": "${BUILD_URL}",
     "language": "en",
     "messenger": "telegram",
     "allureFolder": "build/allure-report/",
@@ -11,7 +11,7 @@
   },
   "telegram": {
     "token": "5343853367:AAE2K9dv3zVj9YVISBNEagGnfckGCAJ1sQI",
-    "chat": "5325634943",
+    "chat": "-1001794511012",
     "replyTo": ""
   }
 }
