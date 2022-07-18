@@ -55,10 +55,10 @@ task properties_test6(type: Test) {
         includeTags "test6"
     }
 }
-    task blabla(type: Test) {
-        useJUnitPlatform{
-            includeTags "owner"
-        }
+task blabla(type: Test) {
+    useJUnitPlatform{
+        includeTags "owner"
+    }
 }
 task someTest1(type: Test) {
     useJUnitPlatform{
