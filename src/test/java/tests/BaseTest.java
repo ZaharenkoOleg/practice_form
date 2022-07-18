@@ -31,11 +31,11 @@ public class BaseTest {
         String remoteDriverUrl = System.getProperty("remoteDriverUrl","selenoid.autotests.cloud/wd/hub");
         Configuration.remote = String.format("https://%s:%s@%s", config.login(), config.password(), remoteDriverUrl);
     }
-        @AfterEach
-        void afterEach() {
-            Attach.screenshotAs("Last screenshot");
-            Attach.pageSource();
-            Attach.browserConsoleLogs();
-            Attach.addVideo();
-        }
+    @AfterEach
+    void afterEach() {
+        Attach.screenshotAs("Last screenshot");
+        Attach.pageSource();
+        Attach.browserConsoleLogs();
+        Attach.addVideo();
     }
+}
